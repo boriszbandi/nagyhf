@@ -1,0 +1,65 @@
+\hypertarget{classDataFetcher}{}\doxysection{Data\+Fetcher Class Reference}
+\label{classDataFetcher}\index{DataFetcher@{DataFetcher}}
+
+
+Inheritance diagram for Data\+Fetcher\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=197pt]{classDataFetcher__inherit__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classDataFetcher_a1cd314cca9f5a082f8a20f257a9c4af4}\label{classDataFetcher_a1cd314cca9f5a082f8a20f257a9c4af4}} 
+virtual void {\bfseries fetch\+IP} ()=0
+\item 
+\mbox{\Hypertarget{classDataFetcher_ae2688adf038fb31a9e509dfefd8e3486}\label{classDataFetcher_ae2688adf038fb31a9e509dfefd8e3486}} 
+virtual void {\bfseries fetch\+Geo} ()=0
+\item 
+\mbox{\Hypertarget{classDataFetcher_a3281800c0ea3718d8718f12cecccdf46}\label{classDataFetcher_a3281800c0ea3718d8718f12cecccdf46}} 
+virtual \mbox{\hyperlink{classWeatherData}{Weather\+Data}} {\bfseries fetch\+Weather} ()=0
+\item 
+\mbox{\Hypertarget{classDataFetcher_a31a4d39b2c659131292977ceab3eff94}\label{classDataFetcher_a31a4d39b2c659131292977ceab3eff94}} 
+virtual std\+::vector$<$ \mbox{\hyperlink{classWeatherData}{Weather\+Data}} $>$ {\bfseries fetch\+Forecast} ()=0
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classDataFetcher_afb89459b686afaf3dff8f296f7a95f53}\label{classDataFetcher_afb89459b686afaf3dff8f296f7a95f53}} 
+std\+::string {\bfseries public\+Ip}
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classDataFetcher_a80a18b418668f83c91b0c010f2c4932c}\label{classDataFetcher_a80a18b418668f83c91b0c010f2c4932c}} 
+static size\+\_\+t {\bfseries write\+Callback} (char $\ast$ptr, size\+\_\+t size, size\+\_\+t nmemb, std\+::string $\ast$stream)
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classDataFetcher_aff3852976ae038f2224a5ad52b36ffe3}\label{classDataFetcher_aff3852976ae038f2224a5ad52b36ffe3}} 
+CURL $\ast$ {\bfseries curl}
+\item 
+\mbox{\Hypertarget{classDataFetcher_ad24de3ed4048124d6ea1382fdaad0412}\label{classDataFetcher_ad24de3ed4048124d6ea1382fdaad0412}} 
+std\+::string {\bfseries stream}
+\item 
+\mbox{\Hypertarget{classDataFetcher_a4b6d4ae70281872a1101ecab67e9d4a7}\label{classDataFetcher_a4b6d4ae70281872a1101ecab67e9d4a7}} 
+CURLcode {\bfseries res}
+\item 
+\mbox{\Hypertarget{classDataFetcher_ac079e33254b2d70b27d89e32adc531a1}\label{classDataFetcher_ac079e33254b2d70b27d89e32adc531a1}} 
+const char $\ast$ {\bfseries weather\+Access\+Key} = \char`\"{}c27e7fc04775ef3b49e5e69b77c89ee0\char`\"{}
+\item 
+\mbox{\Hypertarget{classDataFetcher_a385bf9b592889bf1bbb3c2bfeef1d184}\label{classDataFetcher_a385bf9b592889bf1bbb3c2bfeef1d184}} 
+double {\bfseries lat}
+\item 
+\mbox{\Hypertarget{classDataFetcher_a9ffa4da6d48f3390e97a061256a51dc9}\label{classDataFetcher_a9ffa4da6d48f3390e97a061256a51dc9}} 
+double {\bfseries lon}
+\end{DoxyCompactItemize}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+backend.\+hpp\item 
+backend.\+cpp\end{DoxyCompactItemize}
