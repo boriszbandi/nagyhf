@@ -61,6 +61,7 @@ public:
     virtual void fetchIP() = 0;
     virtual void fetchGeo() = 0;
     virtual WeatherData fetchWeather() = 0;
+    virtual WeatherData fetchForecast() = 0;
 };
 //Az adatok lekérdezéséért felelős osztály
 //@function fetchIP: az IP cím lekérdezéséért felelős függvény
@@ -70,13 +71,14 @@ public:
 
 class BackendDataFetcher : public DataFetcher {
 public:
-    std::string fetchedData; // Add this line
+    std::string fetchedData; 
 
     BackendDataFetcher();
     ~BackendDataFetcher();
     void fetchIP() override;
     void fetchGeo() override;
     WeatherData fetchWeather() override;
+    WeatherData fetchForecast() override;
     static size_t writeCallback(char* ptr, size_t size, size_t nmemb, std::string* stream);
 };
 
