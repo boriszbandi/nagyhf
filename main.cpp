@@ -1,5 +1,6 @@
 #include <iostream>
 #include <sstream>
+#include <ctime>
 #include <string>
 #include <sys/socket.h>
 #include <netinet/in.h>
@@ -24,6 +25,9 @@ public:
         std::cout << "[i] User's socket:\t " << clientSocket << std::endl;
         std::cout << "[i] RAW json from OpenWeather:\t " << weatherData._raw << std::endl;
 
+        std::time_t t = std::time(0);
+        std::tm* now = std::localtime(&t);
+
         //A HTML template beolvasása, majd inja segítéségével a helyettesítés
         //A helyettesítéshez szükséges adatokat a weatherData-ból kiolvastuk és egy JSON objektumba helyeztük
         std::ifstream file("skeleton.html");
@@ -44,7 +48,12 @@ public:
 
         // Itt történik a helyettesítés
         // A data egy JSON objektum, amely tartalmazza HTML adatait
-        nlohmann::json data;
+        nlohmann::json data;    
+
+        std::string monthNames[] = {"Január", "Február", "Március", "Április", "Május", "Június", "Július", "Augusztus", "Szeptember", "Október", "November", "December"};
+        std::string monthName = monthNames[now->tm_mon];
+        std::string datestring = monthName + " " + std::to_string(now->tm_mday) + ".";    
+        data["date"] = datestring;
         data["city"] = weatherData.city;
         data["temp"] = weatherData.temp;
         data["max_temp"] = weatherData.temp_max;
