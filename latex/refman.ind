@@ -1,0 +1,22 @@
+\begin{theindex}
+
+  \item {BackendDataFetcher}, \hyperpage{6}
+
+  \indexspace
+
+  \item {Data}, \hyperpage{8}
+  \item {DataFetcher}, \hyperpage{10}
+
+  \indexspace
+
+  \item {HttpResponse}, \hyperpage{12}
+
+  \indexspace
+
+  \item {Server}, \hyperpage{12}
+
+  \indexspace
+
+  \item {WeatherData}, \hyperpage{13}
+
+\end{theindex}
