@@ -1,0 +1,3 @@
+/home/borisz/prog2/nagyhf/CMakeFiles/rebuild_cache.dir
+/home/borisz/prog2/nagyhf/CMakeFiles/edit_cache.dir
+/home/borisz/prog2/nagyhf/CMakeFiles/MyExecutable.dir

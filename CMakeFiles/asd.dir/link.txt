@@ -1,0 +1,1 @@
+/usr/bin/c++ -rdynamic CMakeFiles/asd.dir/asd.cpp.o -o asd  -llibcurl::libcurl 
