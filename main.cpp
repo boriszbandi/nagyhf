@@ -18,7 +18,8 @@ public:
     // A kliens socketjének fogadása és a válasz elküldése
     void operator()(int clientSocket) {
         // Lekérjük az időjárás adatokat
-        WeatherData weatherData = bdf.fetchWeather();    
+        WeatherData weatherData = bdf.fetchWeather();   
+        std::vector<WeatherData> forecast = bdf.fetchForecast(); 
 
         //@debug Debug céljából kiírjuk a teljes választ 
         std::cout << "[i] User's IP address:\t " << bdf.publicIp << std::endl;
@@ -66,7 +67,25 @@ public:
         data["sunset"] = weatherData.sunset;
         data["sunrise"] = weatherData.sunrise;
         data["ip"] = bdf.publicIp; 
-
+        for (const auto& forecastData : forecast) {
+            inja::json item;
+            std::time_t t = forecastData.dt;
+            std::tm* timePtr = std::localtime(&t);
+            std::stringstream ss;
+            ss << std::put_time(timePtr, "%B %d. %H:%M");
+            item["date"] = ss.str();
+            item["city"] = forecastData.city;
+            item["description"] = forecastData.description;
+            item["temp"] = forecastData.temp;
+            item["temp_min"] = forecastData.temp_min;
+            item["temp_max"] = forecastData.temp_max;
+            item["pressure"] = forecastData.pressure;
+            item["humidity"] = forecastData.humidity;
+            item["wind_speed"] = forecastData.wind_speed;
+            item["wind_direction"] = forecastData.wind_direction;
+            item["icon"] = forecastData.icon;
+            data["forecast"].push_back(item);
+        }
         // A behelyettesített template-t lerenedereljük, majd a válaszhoz hozzáadjuk a HTTP fejlécet
         std::string response = env.render(temp, data);
         response = "HTTP/1.1 200 OK\r\n"
@@ -146,6 +165,7 @@ public:
 
 
 int main() {   
+    std::setlocale(LC_ALL, "hu_HU.utf8");
     Server server;
     server.run();
     return 0;

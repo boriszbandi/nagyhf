@@ -103,6 +103,45 @@ WeatherData BackendDataFetcher::fetchWeather() {
     //Az adatokat tartalmazó objektumot visszaadjuk a hívónak
     return data;
 }
+std::vector<WeatherData> BackendDataFetcher::fetchForecast() {
+    std::string url = "https://api.openweathermap.org/data/2.5/forecast?lat=" + std::to_string(lat) +
+                    "&lon=" + std::to_string(lon) + "&appid=" + weatherAccessKey + "&units=metric&lang=hu";
+
+    curl_easy_setopt(curl, CURLOPT_URL, url.c_str());
+    curl_easy_setopt(curl, CURLOPT_WRITEDATA, &stream);
+    curl_easy_setopt(curl, CURLOPT_WRITEFUNCTION, writeCallback);
+
+    res = curl_easy_perform(curl);
+    if (res != CURLE_OK) { throw std::runtime_error("[!] CURL error (@Weather lookup): " + std::string(curl_easy_strerror(res))); }
+
+    nlohmann::json jsonWeatherData = nlohmann::json::parse(stream);
+
+    std::vector<WeatherData> forecastData;
+    for (const auto& item : jsonWeatherData["list"]) {
+        WeatherData data;
+        if (!item["weather"].empty()) data.description = item["weather"][0]["description"];
+
+        data._raw = stream;
+        data.city = jsonWeatherData["city"]["name"];
+        data.description = item["weather"][0]["description"];
+
+        data.temp = std::round(item["main"]["temp"].get<double>());
+        data.temp_min = std::round(item["main"]["temp_min"].get<double>());
+        data.temp_max = std::round(item["main"]["temp_max"].get<double>());
+        data.pressure = std::round(item["main"]["pressure"].get<double>());
+        data.humidity = std::round(item["main"]["humidity"].get<double>());
+        data.wind_speed = std::round(item["wind"]["speed"].get<double>());
+        data.dt = item["dt"];
+
+        data.wind_direction = item["wind"]["deg"];
+        data.icon = item["weather"][0]["icon"];
+
+        forecastData.push_back(data);
+    }
+
+    stream.clear();
+    return forecastData;
+}
 BackendDataFetcher::BackendDataFetcher() {
     // Az osztály konstruktorában hívjuk meg a fetchIP(), fetchGeo() és fetchWeather() függvényeket, illetve a curl-t itt inicializáljuk
     curl = curl_easy_init();

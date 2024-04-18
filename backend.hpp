@@ -31,7 +31,7 @@ public:
 class WeatherData : public Data {
 public:
     std::string _raw, city, description, icon;
-    int temp, temp_min, temp_max, pressure, humidity, wind_speed, wind_direction, sunrise, sunset, timezone;
+    int temp, temp_min, temp_max, pressure, humidity, wind_speed, wind_direction, sunrise, sunset, timezone, dt;
 };
 
 //Az adatok lekérdezéséért felelős osztály
@@ -61,7 +61,7 @@ public:
     virtual void fetchIP() = 0;
     virtual void fetchGeo() = 0;
     virtual WeatherData fetchWeather() = 0;
-    virtual WeatherData fetchForecast() = 0;
+    virtual std::vector<WeatherData> fetchForecast() = 0;
 };
 //Az adatok lekérdezéséért felelős osztály
 //@function fetchIP: az IP cím lekérdezéséért felelős függvény
@@ -78,7 +78,7 @@ public:
     void fetchIP() override;
     void fetchGeo() override;
     WeatherData fetchWeather() override;
-    WeatherData fetchForecast() override;
+    std::vector<WeatherData> fetchForecast() override;
     static size_t writeCallback(char* ptr, size_t size, size_t nmemb, std::string* stream);
 };
 
