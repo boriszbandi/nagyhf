@@ -4,18 +4,19 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Sümegh András Borisz - HRHZ34</title>
-<!-- Bootstrap CSS -->
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 <style>
 body {
   color: white;
-  background-color: #dddddd; /* Providing a contrast background */
+  background-color: #dddddd;
 }
 .weather-card {
   border-radius: 0.5rem;
-  background-image: radial-gradient( circle 732px at -23.9% -25.1%,  rgba(30,39,107,1) 6.1%, rgba(188,104,142,1) 100.2% );
+  background-image: radial-gradient(circle 732px at -23.9% -25.1%, rgba(30,39,107,1) 6.1%, rgba(188,104,142,1) 100.2%);
   box-shadow: 0 0.25rem 0.25rem rgba(0, 0, 0, 0.075);
   color: #fff;
+  margin: auto; /* Center the card horizontally */
+  width: 80%; /* Set the width of the card */
 }
 .weather-card-header {
   display: flex;
@@ -23,12 +24,12 @@ body {
   align-items: center;
 }
 .weather-icon {
-  width: 50px; /* Size of weather icons */
+  width: 50px;
 }
 .temp-details {
   text-align: right;
   padding: 0.5em;
-  border: none; /* Removed black border */
+  border: none;
   border-radius: 8px;
 }
 .wind-icon {
@@ -85,7 +86,7 @@ body {
 <div class="container py-5">
   <h1 id="cityName" class="display-4 mb-3 text-center">{{city}}</h1>
   <div class="row">
-    <div class="col-md-4 mb-3">
+    <div class="col-md-12 mb-3">
       <div class="weather-card card">
         <div class="weather-card-header p-3">
           <h2 class="h5 mb-0">Ma</h2>
@@ -102,10 +103,9 @@ body {
         <div class="weather-card-body p-3">
           <div class="d-flex align-items-center">
             <img class="weather-icon mr-2" src="https://openweathermap.org/img/wn/{{icon}}@2x.png" alt="Weather Icon">
-            <span class="display-4">{{temp}}&deg;C</span>
+            <span class="display-4">{{temp}}&deg;C</span>&nbsp;&nbsp;&nbsp;<span>— {{description}}</span>
           </div>
-          <div class="weather-info mt-3">
-            <span>— {{description}}</span>
+          <div class="weather-info mt-3">            
             <button onclick="toggleTable()" class="toggle-button">
               <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" class="bi bi-chevron-down" viewBox="0 0 16 16">
                 <path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/>

@@ -6,21 +6,21 @@
 
 #IncludeRegexTransform: 
 
-/home/borisz/prog2/nagyhf/backend.hpp
+/home/borisz/nagyhf/backend.hpp
 curl/curl.h
 -
 include/nlohmann/json.hpp
-/home/borisz/prog2/nagyhf/include/nlohmann/json.hpp
+/home/borisz/nagyhf/include/nlohmann/json.hpp
 
-/home/borisz/prog2/nagyhf/include/inja/config.hpp
+/home/borisz/nagyhf/include/inja/config.hpp
 functional
 -
 string
 -
 template.hpp
-/home/borisz/prog2/nagyhf/include/inja/template.hpp
+/home/borisz/nagyhf/include/inja/template.hpp
 
-/home/borisz/prog2/nagyhf/include/inja/environment.hpp
+/home/borisz/nagyhf/include/inja/environment.hpp
 fstream
 -
 iostream
@@ -34,59 +34,59 @@ string
 string_view
 -
 config.hpp
-/home/borisz/prog2/nagyhf/include/inja/config.hpp
+/home/borisz/nagyhf/include/inja/config.hpp
 function_storage.hpp
-/home/borisz/prog2/nagyhf/include/inja/function_storage.hpp
+/home/borisz/nagyhf/include/inja/function_storage.hpp
 parser.hpp
-/home/borisz/prog2/nagyhf/include/inja/parser.hpp
+/home/borisz/nagyhf/include/inja/parser.hpp
 renderer.hpp
-/home/borisz/prog2/nagyhf/include/inja/renderer.hpp
+/home/borisz/nagyhf/include/inja/renderer.hpp
 template.hpp
-/home/borisz/prog2/nagyhf/include/inja/template.hpp
+/home/borisz/nagyhf/include/inja/template.hpp
 utils.hpp
-/home/borisz/prog2/nagyhf/include/inja/utils.hpp
+/home/borisz/nagyhf/include/inja/utils.hpp
 
-/home/borisz/prog2/nagyhf/include/inja/exceptions.hpp
+/home/borisz/nagyhf/include/inja/exceptions.hpp
 stdexcept
 -
 string
 -
 
-/home/borisz/prog2/nagyhf/include/inja/function_storage.hpp
+/home/borisz/nagyhf/include/inja/function_storage.hpp
 string_view
 -
 vector
 -
 
-/home/borisz/prog2/nagyhf/include/inja/inja.hpp
+/home/borisz/nagyhf/include/inja/inja.hpp
 nlohmann/json.hpp
 -
 cstdlib
 -
 environment.hpp
-/home/borisz/prog2/nagyhf/include/inja/environment.hpp
+/home/borisz/nagyhf/include/inja/environment.hpp
 exceptions.hpp
-/home/borisz/prog2/nagyhf/include/inja/exceptions.hpp
+/home/borisz/nagyhf/include/inja/exceptions.hpp
 parser.hpp
-/home/borisz/prog2/nagyhf/include/inja/parser.hpp
+/home/borisz/nagyhf/include/inja/parser.hpp
 renderer.hpp
-/home/borisz/prog2/nagyhf/include/inja/renderer.hpp
+/home/borisz/nagyhf/include/inja/renderer.hpp
 template.hpp
-/home/borisz/prog2/nagyhf/include/inja/template.hpp
+/home/borisz/nagyhf/include/inja/template.hpp
 
-/home/borisz/prog2/nagyhf/include/inja/lexer.hpp
+/home/borisz/nagyhf/include/inja/lexer.hpp
 cctype
 -
 locale
 -
 config.hpp
-/home/borisz/prog2/nagyhf/include/inja/config.hpp
+/home/borisz/nagyhf/include/inja/config.hpp
 token.hpp
-/home/borisz/prog2/nagyhf/include/inja/token.hpp
+/home/borisz/nagyhf/include/inja/token.hpp
 utils.hpp
-/home/borisz/prog2/nagyhf/include/inja/utils.hpp
+/home/borisz/nagyhf/include/inja/utils.hpp
 
-/home/borisz/prog2/nagyhf/include/inja/node.hpp
+/home/borisz/nagyhf/include/inja/node.hpp
 string
 -
 string_view
@@ -94,11 +94,11 @@ string_view
 utility
 -
 function_storage.hpp
-/home/borisz/prog2/nagyhf/include/inja/function_storage.hpp
+/home/borisz/nagyhf/include/inja/function_storage.hpp
 utils.hpp
-/home/borisz/prog2/nagyhf/include/inja/utils.hpp
+/home/borisz/nagyhf/include/inja/utils.hpp
 
-/home/borisz/prog2/nagyhf/include/inja/parser.hpp
+/home/borisz/nagyhf/include/inja/parser.hpp
 limits
 -
 stack
@@ -110,23 +110,23 @@ utility
 vector
 -
 config.hpp
-/home/borisz/prog2/nagyhf/include/inja/config.hpp
+/home/borisz/nagyhf/include/inja/config.hpp
 exceptions.hpp
-/home/borisz/prog2/nagyhf/include/inja/exceptions.hpp
+/home/borisz/nagyhf/include/inja/exceptions.hpp
 function_storage.hpp
-/home/borisz/prog2/nagyhf/include/inja/function_storage.hpp
+/home/borisz/nagyhf/include/inja/function_storage.hpp
 lexer.hpp
-/home/borisz/prog2/nagyhf/include/inja/lexer.hpp
+/home/borisz/nagyhf/include/inja/lexer.hpp
 node.hpp
-/home/borisz/prog2/nagyhf/include/inja/node.hpp
+/home/borisz/nagyhf/include/inja/node.hpp
 template.hpp
-/home/borisz/prog2/nagyhf/include/inja/template.hpp
+/home/borisz/nagyhf/include/inja/template.hpp
 token.hpp
-/home/borisz/prog2/nagyhf/include/inja/token.hpp
+/home/borisz/nagyhf/include/inja/token.hpp
 utils.hpp
-/home/borisz/prog2/nagyhf/include/inja/utils.hpp
+/home/borisz/nagyhf/include/inja/utils.hpp
 
-/home/borisz/prog2/nagyhf/include/inja/renderer.hpp
+/home/borisz/nagyhf/include/inja/renderer.hpp
 algorithm
 -
 numeric
@@ -138,21 +138,21 @@ utility
 vector
 -
 config.hpp
-/home/borisz/prog2/nagyhf/include/inja/config.hpp
+/home/borisz/nagyhf/include/inja/config.hpp
 exceptions.hpp
-/home/borisz/prog2/nagyhf/include/inja/exceptions.hpp
+/home/borisz/nagyhf/include/inja/exceptions.hpp
 node.hpp
-/home/borisz/prog2/nagyhf/include/inja/node.hpp
+/home/borisz/nagyhf/include/inja/node.hpp
 template.hpp
-/home/borisz/prog2/nagyhf/include/inja/template.hpp
+/home/borisz/nagyhf/include/inja/template.hpp
 utils.hpp
-/home/borisz/prog2/nagyhf/include/inja/utils.hpp
+/home/borisz/nagyhf/include/inja/utils.hpp
 
-/home/borisz/prog2/nagyhf/include/inja/statistics.hpp
+/home/borisz/nagyhf/include/inja/statistics.hpp
 node.hpp
-/home/borisz/prog2/nagyhf/include/inja/node.hpp
+/home/borisz/nagyhf/include/inja/node.hpp
 
-/home/borisz/prog2/nagyhf/include/inja/template.hpp
+/home/borisz/nagyhf/include/inja/template.hpp
 map
 -
 memory
@@ -162,17 +162,17 @@ string
 vector
 -
 node.hpp
-/home/borisz/prog2/nagyhf/include/inja/node.hpp
+/home/borisz/nagyhf/include/inja/node.hpp
 statistics.hpp
-/home/borisz/prog2/nagyhf/include/inja/statistics.hpp
+/home/borisz/nagyhf/include/inja/statistics.hpp
 
-/home/borisz/prog2/nagyhf/include/inja/token.hpp
+/home/borisz/nagyhf/include/inja/token.hpp
 string
 -
 string_view
 -
 
-/home/borisz/prog2/nagyhf/include/inja/utils.hpp
+/home/borisz/nagyhf/include/inja/utils.hpp
 algorithm
 -
 fstream
@@ -184,9 +184,9 @@ string_view
 utility
 -
 exceptions.hpp
-/home/borisz/prog2/nagyhf/include/inja/exceptions.hpp
+/home/borisz/nagyhf/include/inja/exceptions.hpp
 
-/home/borisz/prog2/nagyhf/include/nlohmann/json.hpp
+/home/borisz/nagyhf/include/nlohmann/json.hpp
 algorithm
 -
 cstddef
@@ -272,7 +272,7 @@ string_view
 nlohmann/detail/macro_unscope.hpp
 -
 
-/home/borisz/prog2/nagyhf/main.cpp
+/home/borisz/nagyhf/main.cpp
 iostream
 -
 sstream
@@ -286,9 +286,9 @@ netinet/in.h
 unistd.h
 -
 include/inja/inja.hpp
-/home/borisz/prog2/nagyhf/include/inja/inja.hpp
+/home/borisz/nagyhf/include/inja/inja.hpp
 backend.hpp
-/home/borisz/prog2/nagyhf/backend.hpp
+/home/borisz/nagyhf/backend.hpp
 
 include/nlohmann/adl_serializer.hpp
 utility

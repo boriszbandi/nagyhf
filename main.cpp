@@ -26,7 +26,7 @@ public:
 
         //A HTML template beolvasása, majd inja segítéségével a helyettesítés
         //A helyettesítéshez szükséges adatokat a weatherData-ból kiolvastuk és egy JSON objektumba helyeztük
-        std::ifstream file("nagyhf/skeleton.html");
+        std::ifstream file("skeleton.html");
         std::stringstream buffer;
 
         //Bufferbe olvassuk a fájl tartalmát

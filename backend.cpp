@@ -55,7 +55,7 @@ void BackendDataFetcher::fetchGeo() {
     lon = response.value("lon", 0.0);
     stream.clear();
 }
-WeatherData BackendDataFetcher::fetcwhWeather() {
+WeatherData BackendDataFetcher::fetchWeather() {
     //Időjárás adatok lekérése
     //Az URL-ben a lat és lon helyére a koordinátákat helyettesítjük be
     //Az appid helyére az OpenWeatherMap API kulcsát
