@@ -67,6 +67,9 @@ public:
         data["sunset"] = weatherData.sunset;
         data["sunrise"] = weatherData.sunrise;
         data["ip"] = bdf.publicIp; 
+        data["hosszusag"] = bdf.hosszusag;
+        data["szelesseg"] = bdf.szelesseg;
+        data["raw"] = weatherData._raw;
         for (const auto& forecastData : forecast) {
             inja::json item;
             std::time_t t = forecastData.dt;

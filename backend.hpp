@@ -72,6 +72,7 @@ public:
 class BackendDataFetcher : public DataFetcher {
 public:
     std::string fetchedData; 
+    int szelesseg, hosszusag;
 
     BackendDataFetcher();
     ~BackendDataFetcher();

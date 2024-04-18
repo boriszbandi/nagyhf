@@ -211,20 +211,30 @@
             {% for data in forecast %}
             <tr>
                 <td>{{ data.date }}</td>
-                <td style="text-align: justify;"><img src="https://openweathermap.org/img/wn/{{data.icon}}@2x.png"> &mdash;&mdash; {{ data.description }}</td>
-                <td>{{ data.temp }}</td>
-                <td>{{ data.wind_speed }}</td>
-                <td>{{ data.wind_direction }}</td>
+                <td style="text-align: justify;"><img width="32px" src="https://openweathermap.org/img/wn/{{data.icon}}@2x.png">{{data.temp}}&deg;C &mdash; {{ data.description }}</td>
+                <td> <div class="wind-details">
+                  <svg class="wind-icon" style="transform: rotate({{data.wind_direction}}deg);"></svg>
+                  <span class="wind-speed">{{data.wind_speed}} <small>km/h</small></span>
+                </div></td>
+                <td><span class="wind-speed"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em"
+                  viewBox="0 0 24 24">
+                  <g fill="none" stroke="currentColor">
+                    <path stroke-linecap="round" d="M20.693 17.33a9 9 0 1 0-17.386 0" />
+                    <path
+                      d="M12.766 15.582c.487.71.144 1.792-.766 2.417c-.91.626-2.043.558-2.53-.151c-.52-.756-2.314-5.007-3.403-7.637c-.205-.495.4-.911.79-.542c2.064 1.96 5.39 5.157 5.909 5.913Z" />
+                    <path stroke-linecap="round"
+                      d="M12 6v2m-6.364.636L7.05 10.05m11.314-1.414L16.95 10.05m3.743 7.28l-1.931-.518m-15.455.518l1.931-.518" />
+                  </g>
+                </svg> {{data.pressure}} <small>hPa</small></span></td>
             </tr>
             {% endfor %}
           </ tbody>
         </table>        
+        <footer style="text-align: center;">IP címe: {{ip}}<br>Hosszúság: {{hosszusag}}&deg; - Szélesség: {{szelesseg}}&deg; <br>raw: {{raw}}</footer>
                 
         </div>
       </div>
     </div>
-    <footer><small>IP címe: {{ip}}</small></footer>
-
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>

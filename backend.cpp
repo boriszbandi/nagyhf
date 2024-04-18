@@ -82,6 +82,8 @@ WeatherData BackendDataFetcher::fetchWeather() {
 
     //Az adatokat a JSON objektumból kiolvasva eltároljuk
     data._raw = stream;
+    szelesseg = jsonWeatherData["coord"]["lat"];
+    hosszusag = jsonWeatherData["coord"]["lon"];
     data.city = jsonWeatherData["name"];
     data.description = jsonWeatherData["weather"][0]["description"];
 
