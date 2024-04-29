@@ -1,1 +1,1 @@
-/usr/bin/c++ -g CMakeFiles/MyExecutable.dir/backend.cpp.o CMakeFiles/MyExecutable.dir/main.cpp.o -o MyExecutable  /usr/lib/x86_64-linux-gnu/libcurl.so 
+/usr/bin/c++ CMakeFiles/MyExecutable.dir/backend.cpp.o CMakeFiles/MyExecutable.dir/main.cpp.o -o MyExecutable  /usr/lib/x86_64-linux-gnu/libcurl.so 

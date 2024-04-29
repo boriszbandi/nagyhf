@@ -81,6 +81,6 @@
         "strstream": "cpp",
         "future": "cpp"
     },
-    "cmake.sourceDirectory": "/home/borisz/nagyhf",
+    "cmake.sourceDirectory": "/home/borisz/Desktop/nagyhf",
     "C_Cpp.errorSquiggles": "disabled"
 }
