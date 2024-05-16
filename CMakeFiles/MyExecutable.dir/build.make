@@ -53,10 +53,10 @@ RM = /usr/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/borisz/Desktop/nagyhf
+CMAKE_SOURCE_DIR = /home/borisz/BME/nagyhf/nagyhf
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/borisz/Desktop/nagyhf
+CMAKE_BINARY_DIR = /home/borisz/BME/nagyhf/nagyhf
 
 # Include any dependencies generated for this target.
 include CMakeFiles/MyExecutable.dir/depend.make
@@ -72,30 +72,30 @@ include CMakeFiles/MyExecutable.dir/flags.make
 CMakeFiles/MyExecutable.dir/backend.cpp.o: CMakeFiles/MyExecutable.dir/flags.make
 CMakeFiles/MyExecutable.dir/backend.cpp.o: backend.cpp
 CMakeFiles/MyExecutable.dir/backend.cpp.o: CMakeFiles/MyExecutable.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/borisz/Desktop/nagyhf/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/MyExecutable.dir/backend.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/MyExecutable.dir/backend.cpp.o -MF CMakeFiles/MyExecutable.dir/backend.cpp.o.d -o CMakeFiles/MyExecutable.dir/backend.cpp.o -c /home/borisz/Desktop/nagyhf/backend.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/borisz/BME/nagyhf/nagyhf/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/MyExecutable.dir/backend.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/MyExecutable.dir/backend.cpp.o -MF CMakeFiles/MyExecutable.dir/backend.cpp.o.d -o CMakeFiles/MyExecutable.dir/backend.cpp.o -c /home/borisz/BME/nagyhf/nagyhf/backend.cpp
 
 CMakeFiles/MyExecutable.dir/backend.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/MyExecutable.dir/backend.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/borisz/Desktop/nagyhf/backend.cpp > CMakeFiles/MyExecutable.dir/backend.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/borisz/BME/nagyhf/nagyhf/backend.cpp > CMakeFiles/MyExecutable.dir/backend.cpp.i
 
 CMakeFiles/MyExecutable.dir/backend.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/MyExecutable.dir/backend.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/borisz/Desktop/nagyhf/backend.cpp -o CMakeFiles/MyExecutable.dir/backend.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/borisz/BME/nagyhf/nagyhf/backend.cpp -o CMakeFiles/MyExecutable.dir/backend.cpp.s
 
 CMakeFiles/MyExecutable.dir/main.cpp.o: CMakeFiles/MyExecutable.dir/flags.make
 CMakeFiles/MyExecutable.dir/main.cpp.o: main.cpp
 CMakeFiles/MyExecutable.dir/main.cpp.o: CMakeFiles/MyExecutable.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/borisz/Desktop/nagyhf/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/MyExecutable.dir/main.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/MyExecutable.dir/main.cpp.o -MF CMakeFiles/MyExecutable.dir/main.cpp.o.d -o CMakeFiles/MyExecutable.dir/main.cpp.o -c /home/borisz/Desktop/nagyhf/main.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/borisz/BME/nagyhf/nagyhf/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/MyExecutable.dir/main.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/MyExecutable.dir/main.cpp.o -MF CMakeFiles/MyExecutable.dir/main.cpp.o.d -o CMakeFiles/MyExecutable.dir/main.cpp.o -c /home/borisz/BME/nagyhf/nagyhf/main.cpp
 
 CMakeFiles/MyExecutable.dir/main.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/MyExecutable.dir/main.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/borisz/Desktop/nagyhf/main.cpp > CMakeFiles/MyExecutable.dir/main.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/borisz/BME/nagyhf/nagyhf/main.cpp > CMakeFiles/MyExecutable.dir/main.cpp.i
 
 CMakeFiles/MyExecutable.dir/main.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/MyExecutable.dir/main.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/borisz/Desktop/nagyhf/main.cpp -o CMakeFiles/MyExecutable.dir/main.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/borisz/BME/nagyhf/nagyhf/main.cpp -o CMakeFiles/MyExecutable.dir/main.cpp.s
 
 # Object files for target MyExecutable
 MyExecutable_OBJECTS = \
@@ -110,7 +110,7 @@ MyExecutable: CMakeFiles/MyExecutable.dir/main.cpp.o
 MyExecutable: CMakeFiles/MyExecutable.dir/build.make
 MyExecutable: /usr/lib/x86_64-linux-gnu/libcurl.so
 MyExecutable: CMakeFiles/MyExecutable.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/borisz/Desktop/nagyhf/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Linking CXX executable MyExecutable"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/borisz/BME/nagyhf/nagyhf/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Linking CXX executable MyExecutable"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/MyExecutable.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -122,6 +122,6 @@ CMakeFiles/MyExecutable.dir/clean:
 .PHONY : CMakeFiles/MyExecutable.dir/clean
 
 CMakeFiles/MyExecutable.dir/depend:
-	cd /home/borisz/Desktop/nagyhf && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/borisz/Desktop/nagyhf /home/borisz/Desktop/nagyhf /home/borisz/Desktop/nagyhf /home/borisz/Desktop/nagyhf /home/borisz/Desktop/nagyhf/CMakeFiles/MyExecutable.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/borisz/BME/nagyhf/nagyhf && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/borisz/BME/nagyhf/nagyhf /home/borisz/BME/nagyhf/nagyhf /home/borisz/BME/nagyhf/nagyhf /home/borisz/BME/nagyhf/nagyhf /home/borisz/BME/nagyhf/nagyhf/CMakeFiles/MyExecutable.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/MyExecutable.dir/depend
 

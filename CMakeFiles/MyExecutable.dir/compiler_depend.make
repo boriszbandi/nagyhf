@@ -806,8 +806,56 @@ CMakeFiles/MyExecutable.dir/main.cpp.o: main.cpp \
   /usr/include/x86_64-linux-gnu/curl/options.h \
   /usr/include/x86_64-linux-gnu/curl/header.h \
   /usr/include/x86_64-linux-gnu/curl/websockets.h \
-  include/nlohmann/json.hpp
+  include/nlohmann/json.hpp \
+  /usr/include/signal.h \
+  /usr/include/x86_64-linux-gnu/bits/signum-generic.h \
+  /usr/include/x86_64-linux-gnu/bits/signum-arch.h \
+  /usr/include/x86_64-linux-gnu/bits/types/sig_atomic_t.h \
+  /usr/include/x86_64-linux-gnu/bits/types/siginfo_t.h \
+  /usr/include/x86_64-linux-gnu/bits/types/__sigval_t.h \
+  /usr/include/x86_64-linux-gnu/bits/siginfo-arch.h \
+  /usr/include/x86_64-linux-gnu/bits/siginfo-consts.h \
+  /usr/include/x86_64-linux-gnu/bits/siginfo-consts-arch.h \
+  /usr/include/x86_64-linux-gnu/bits/types/sigval_t.h \
+  /usr/include/x86_64-linux-gnu/bits/types/sigevent_t.h \
+  /usr/include/x86_64-linux-gnu/bits/sigevent-consts.h \
+  /usr/include/x86_64-linux-gnu/bits/sigaction.h \
+  /usr/include/x86_64-linux-gnu/bits/sigcontext.h \
+  /usr/include/x86_64-linux-gnu/bits/types/stack_t.h \
+  /usr/include/x86_64-linux-gnu/sys/ucontext.h \
+  /usr/include/x86_64-linux-gnu/bits/sigstack.h \
+  /usr/include/x86_64-linux-gnu/bits/sigstksz.h \
+  /usr/include/x86_64-linux-gnu/bits/ss_flags.h \
+  /usr/include/x86_64-linux-gnu/bits/types/struct_sigstack.h \
+  /usr/include/x86_64-linux-gnu/bits/sigthread.h \
+  /usr/include/x86_64-linux-gnu/bits/signal_ext.h
 
+
+/usr/include/x86_64-linux-gnu/bits/signal_ext.h:
+
+/usr/include/x86_64-linux-gnu/bits/sigstksz.h:
+
+/usr/include/x86_64-linux-gnu/bits/sigstack.h:
+
+/usr/include/x86_64-linux-gnu/sys/ucontext.h:
+
+/usr/include/x86_64-linux-gnu/bits/sigcontext.h:
+
+/usr/include/x86_64-linux-gnu/bits/sigevent-consts.h:
+
+/usr/include/x86_64-linux-gnu/bits/types/sigval_t.h:
+
+/usr/include/x86_64-linux-gnu/bits/siginfo-consts-arch.h:
+
+/usr/include/x86_64-linux-gnu/bits/siginfo-consts.h:
+
+/usr/include/x86_64-linux-gnu/bits/types/siginfo_t.h:
+
+/usr/include/x86_64-linux-gnu/bits/ss_flags.h:
+
+/usr/include/x86_64-linux-gnu/bits/types/sig_atomic_t.h:
+
+/usr/include/x86_64-linux-gnu/bits/signum-generic.h:
 
 include/inja/renderer.hpp:
 
@@ -953,6 +1001,8 @@ include/nlohmann/detail/value_t.hpp:
 
 /usr/include/c++/12/tr1/gamma.tcc:
 
+/usr/include/x86_64-linux-gnu/bits/types/__sigval_t.h:
+
 /usr/include/c++/12/limits:
 
 /usr/include/c++/12/bits/specfun.h:
@@ -986,6 +1036,8 @@ include/nlohmann/detail/input/parser.hpp:
 /usr/include/c++/12/bits/stl_map.h:
 
 /usr/include/c++/12/bits/stl_tree.h:
+
+/usr/include/signal.h:
 
 /usr/include/strings.h:
 
@@ -1024,6 +1076,8 @@ include/nlohmann/detail/hash.hpp:
 /usr/include/c++/12/bits/stl_function.h:
 
 /usr/include/c++/12/bits/std_function.h:
+
+/usr/include/x86_64-linux-gnu/bits/siginfo-arch.h:
 
 /usr/include/x86_64-linux-gnu/curl/urlapi.h:
 
@@ -1106,6 +1160,8 @@ include/nlohmann/json_fwd.hpp:
 /usr/include/c++/12/bits/postypes.h:
 
 /usr/include/x86_64-linux-gnu/bits/sched.h:
+
+/usr/include/x86_64-linux-gnu/bits/types/stack_t.h:
 
 /usr/include/c++/12/bits/locale_facets.tcc:
 
@@ -1223,6 +1279,8 @@ include/nlohmann/detail/input/binary_reader.hpp:
 
 /usr/include/x86_64-linux-gnu/c++/12/bits/os_defines.h:
 
+/usr/include/x86_64-linux-gnu/bits/sigaction.h:
+
 /usr/include/c++/12/bits/locale_facets_nonio.h:
 
 /usr/include/c++/12/bits/exception.h:
@@ -1312,6 +1370,8 @@ include/inja/lexer.hpp:
 include/nlohmann/detail/conversions/to_json.hpp:
 
 /usr/include/c++/12/bits/exception_ptr.h:
+
+/usr/include/x86_64-linux-gnu/bits/types/struct_sigstack.h:
 
 /usr/include/c++/12/ext/numeric_traits.h:
 
@@ -1438,6 +1498,8 @@ include/nlohmann/detail/meta/type_traits.hpp:
 include/nlohmann/detail/meta/std_fs.hpp:
 
 /usr/include/errno.h:
+
+/usr/include/x86_64-linux-gnu/bits/signum-arch.h:
 
 /usr/include/x86_64-linux-gnu/bits/errno.h:
 
@@ -1571,6 +1633,8 @@ include/nlohmann/thirdparty/hedley/hedley.hpp:
 
 /usr/include/x86_64-linux-gnu/asm/sockios.h:
 
+/usr/include/x86_64-linux-gnu/bits/types/sigevent_t.h:
+
 /usr/include/x86_64-linux-gnu/bits/types/struct_osockaddr.h:
 
 /usr/include/x86_64-linux-gnu/sys/time.h:
@@ -1610,6 +1674,8 @@ include/nlohmann/detail/input/input_adapters.hpp:
 /usr/include/c++/12/ext/aligned_buffer.h:
 
 /usr/include/c++/12/bits/enable_special_members.h:
+
+/usr/include/x86_64-linux-gnu/bits/sigthread.h:
 
 include/nlohmann/detail/meta/cpp_future.hpp:
 

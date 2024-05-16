@@ -17,10 +17,14 @@ include_directories(${CURL_INCLUDE_DIR})
 include_directories(${PROJECT_SOURCE_DIR}/include)
 
 # Define the executable to be built from your source files
+#add_definitions(-DDEBUG_MODE)
 add_executable(MyExecutable backend.cpp main.cpp) # Include main.cpp here
 
 # Link the CURL library with your executable
 target_link_libraries(MyExecutable ${CURL_LIBRARIES})
+# add here the include/memtrace.hpp file
+
+
 
 # If you're using a specific path for the nlohmann/json.hpp and it's not in a standard include path, you might need to adjust
 # the include_directories command above to point to the correct directory where json.hpp is located.

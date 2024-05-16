@@ -3,6 +3,9 @@
 
 #include <curl/curl.h>
 #include "include/nlohmann/json.hpp"
+//#include "include/memtrace/memtrace.h"
+
+#define MEMTRACE_H
 
 using json = nlohmann::json;
 

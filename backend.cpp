@@ -3,6 +3,9 @@
 #include <cstdlib> 
 #include "backend.hpp"
 #include "include/nlohmann/json.hpp"
+//#include "include/memtrace/memtrace.h"
+
+#define MEMTRACE_H
 
 using json = nlohmann::json;
 
@@ -13,7 +16,8 @@ DataFetcher::DataFetcher() {
     }
 }
 DataFetcher::~DataFetcher() {
-    curl_easy_cleanup(curl);
+    std::cout << "[i] DataFetcher: Bye-bye!" << std::endl;
+    if (curl) { curl_easy_cleanup(curl); }
 }
 
 void BackendDataFetcher::fetchIP() {
@@ -146,7 +150,6 @@ std::vector<WeatherData> BackendDataFetcher::fetchForecast() {
 }
 BackendDataFetcher::BackendDataFetcher() {
     // Az osztály konstruktorában hívjuk meg a fetchIP(), fetchGeo() és fetchWeather() függvényeket, illetve a curl-t itt inicializáljuk
-    curl = curl_easy_init();
     if (!curl) { throw std::runtime_error("[!] Failed to initialize CURL (@bdf constructor)"); }
 
     //Az adatokat egy stringbe gyűjtjük össze a könnyebb kezelhetőség érdekében
@@ -163,10 +166,15 @@ BackendDataFetcher::BackendDataFetcher() {
                  std::to_string(weatherData.pressure) + std::to_string(weatherData.humidity) + 
                  std::to_string(weatherData.wind_speed) + std::to_string(weatherData.wind_direction) + 
                  std::to_string(weatherData.sunrise) + std::to_string(weatherData.sunset) + 
-                 std::to_string(weatherData.timezone) + "\n";
-    } catch (const std::exception& e) { std::cerr << "[!] Exception caught: (@bdf constructor)" << e.what() << std::endl; }            
+                 std::to_string(weatherData.timezone) + "\n"; 
+    } catch (const std::exception& e) { std::cerr << "[!] Exception caught: (@bdf constructor)" << e.what() << std::endl; }     
 }
-BackendDataFetcher::~BackendDataFetcher() { curl_easy_cleanup(curl); }
+BackendDataFetcher::~BackendDataFetcher() {
+    std::cout << "[i] BackendDataFetcher: Bye-bye!" << std::endl;
+    //Itt nem kell curl szabadítás, mivel a DataFetcher ősosztályban már megtörtént.
+    //A stringek amiket használtunk, azokat nem kell felszabadítani, mert a destruktor automatikusan felszabadítja őket
+}
+
 
 //A writeCallback függvény a curl_easy_perform hívások során a válaszokat írja a stream-be, ez fontos a válaszok kezeléséhez
 //@param ptr: a válasz tartalma (char*) 

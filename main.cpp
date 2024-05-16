@@ -7,11 +7,47 @@
 #include <unistd.h>
 #include "include/inja/inja.hpp"
 #include "backend.hpp"
+#include <signal.h>
 
+volatile sig_atomic_t stop = 0;
+
+void inthand(int signum) {
+    stop = 1;
+}
+
+//#include "include/memtrace/memtrace.h"
+
+static bool DEBUG_MODE = false;
 // HTTP response kezelése
 // A WeatherData lekérdezése után a válasz elküldése a kliensnek
 
 class HttpResponse {
+    public:
+        enum DateType {
+            HO_NAP,
+            ALL
+        };
+        template<DateType T>
+        std::string dateFormatter(int hoIdx = 1, int napIdx = 1, WeatherData ForecastData = {}){
+            std::string monthNames[] = {"Január", "Február", "Március", "Április", "Május", "Június", "Július", "Augusztus", "Szeptember", "Október", "November", "December"};
+            
+            
+            if constexpr (T == HO_NAP){
+                return monthNames[hoIdx] + " " + std::to_string(napIdx) + ".";
+            }
+            else if constexpr(T == ALL){
+                std::time_t t = ForecastData.dt;
+                int ho = std::localtime(&t)->tm_mon;
+                int nap = std::localtime(&t)->tm_mday;
+                std::tm* tm = std::localtime(&t);
+                std::stringstream oraperc;
+                oraperc <<std::put_time(tm, "%H:%M");
+                
+                return monthNames[ho] + " " + std::to_string(nap) + ". " + oraperc.str();
+            }
+            return "";
+        }
+       
     BackendDataFetcher bdf;
 
 public:
@@ -22,9 +58,11 @@ public:
         std::vector<WeatherData> forecast = bdf.fetchForecast(); 
 
         //@debug Debug céljából kiírjuk a teljes választ 
-        std::cout << "[i] User's IP address:\t " << bdf.publicIp << std::endl;
-        std::cout << "[i] User's socket:\t " << clientSocket << std::endl;
-        std::cout << "[i] RAW json from OpenWeather:\t " << weatherData._raw << std::endl;
+        #if DEBUG_MODE
+            std::cout << "[i] User's IP address:\t " << bdf.publicIp << std::endl;
+            std::cout << "[i] User's socket:\t " << clientSocket << std::endl;
+            std::cout << "[i] RAW json from OpenWeather:\t " << weatherData._raw << std::endl;
+        #endif
 
         std::time_t t = std::time(0);
         std::tm* now = std::localtime(&t);
@@ -51,9 +89,7 @@ public:
         // A data egy JSON objektum, amely tartalmazza HTML adatait
         nlohmann::json data;    
 
-        std::string monthNames[] = {"Január", "Február", "Március", "Április", "Május", "Június", "Július", "Augusztus", "Szeptember", "Október", "November", "December"};
-        std::string monthName = monthNames[now->tm_mon];
-        std::string datestring = monthName + " " + std::to_string(now->tm_mday) + ".";    
+        std::string datestring = dateFormatter<HO_NAP>(now->tm_mon, now->tm_mday);    
         data["date"] = datestring;
         data["city"] = weatherData.city;
         data["temp"] = weatherData.temp;
@@ -72,11 +108,8 @@ public:
         data["raw"] = weatherData._raw;
         for (const auto& forecastData : forecast) {
             inja::json item;
-            std::time_t t = forecastData.dt;
-            std::tm* timePtr = std::localtime(&t);
-            std::stringstream ss;
-            ss << std::put_time(timePtr, "%B %d. %H:%M");
-            item["date"] = ss.str();
+            std::string datestring = dateFormatter<ALL>(0, 0, forecastData);
+            item["date"] = datestring;
             item["city"] = forecastData.city;
             item["description"] = forecastData.description;
             item["temp"] = forecastData.temp;
@@ -112,7 +145,7 @@ class Server {
     int addrlen = sizeof(address);
     HttpResponse httpResponse;
 
-public:
+public:    
     Server() {
         //Itt az egész https://www.geeksforgeeks.org/socket-programming-cc/ alapján készült
 
@@ -144,32 +177,73 @@ public:
         }
 
         //Ha minden sikerült, kiírjuk, hogy a szerver fut (mert fut :D)
-        std::cout << "[i] Server is running on port 8080\tPress Ctrl+C to stop server" << std::endl; 
+        std::cout << "[i] Server is running on port 8080\tPress Ctrl+C to stop server" << std::endl;              
+    }
+
+    void stop() {
+        // Close the server socket
+        close(server_fd);
+
+        // Perform any necessary cleanup here
+
+        std::cout << "[i] Server has been stopped" << std::endl;
     }
 
     // A szerver futtatása
     // A szerver folyamatosan vár a kliensekre, majd a kliens socketjét átadja a httpResponse-nek
     // A kliens socketjét bezárja a válasz elküldése után
     void run() {
-        while(true) {           
+        #if !DEBUG_MODE
+            while(true) {           
+                std::cout << "[i] Listening for newcomers.." << std::endl;
+                // A kliens socketjének fogadása, majd a válasz elküldése
+                if ((new_socket = accept(server_fd, (struct sockaddr *)&address, (socklen_t*)&addrlen))<0) {
+                    perror("[!] socket accept failed (@Server respone)");
+                    return;                   
+                }                          
+
+                // A válasz elküldése a kliensnek, majd a kliens socketjének bezárása
+                httpResponse(new_socket);
+                close(new_socket);            
+            }
+            return;
+        #endif   
+        #if DEBUG_MODE   
+            std::cout << "[DBG_MODE] Debug mode is enabled [DBG_MODE]" << std::endl;               
             std::cout << "[i] Listening for newcomers.." << std::endl;
             // A kliens socketjének fogadása, majd a válasz elküldése
             if ((new_socket = accept(server_fd, (struct sockaddr *)&address, (socklen_t*)&addrlen))<0) {
-                perror("[!] socket accept failed (@Server respone)");
+                perror("[!][DBG_MODE] socket accept failed (@Server respone)");
                 exit(EXIT_FAILURE);
             }           
 
             // A válasz elküldése a kliensnek, majd a kliens socketjének bezárása
             httpResponse(new_socket);
-            close(new_socket);
-        }
+            close(new_socket);    
+            return;
+        #endif
     }
 };
 
 
-int main() {   
+int main() { 
+    //https://stackoverflow.com/questions/16959377/how-to-detect-kill-of-my-process
+
+    struct sigaction act;
+    act.sa_handler = inthand;
+    sigemptyset(&act.sa_mask);
+    act.sa_flags = 0;
+
+    if (sigaction(SIGINT, &act, NULL) < 0) {
+        perror("sigaction");
+        return 1;
+    } 
+    //========eddig
     std::setlocale(LC_ALL, "hu_HU.utf8");
     Server server;
-    server.run();
+    while (!stop) {
+        server.run();
+    }
+    server.stop();
     return 0;
 }

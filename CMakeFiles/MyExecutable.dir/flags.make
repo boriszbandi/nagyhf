@@ -4,7 +4,7 @@
 # compile CXX with /usr/bin/c++
 CXX_DEFINES = 
 
-CXX_INCLUDES = -I/home/borisz/Desktop/nagyhf/include
+CXX_INCLUDES = -I/home/borisz/BME/nagyhf/nagyhf/include
 
-CXX_FLAGS = -std=gnu++17
+CXX_FLAGS = -g -std=gnu++17
 

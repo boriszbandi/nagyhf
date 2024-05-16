@@ -8,8 +8,8 @@ set(CMAKE_DEPENDS_LANGUAGES
 
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
-  "/home/borisz/Desktop/nagyhf/backend.cpp" "CMakeFiles/MyExecutable.dir/backend.cpp.o" "gcc" "CMakeFiles/MyExecutable.dir/backend.cpp.o.d"
-  "/home/borisz/Desktop/nagyhf/main.cpp" "CMakeFiles/MyExecutable.dir/main.cpp.o" "gcc" "CMakeFiles/MyExecutable.dir/main.cpp.o.d"
+  "/home/borisz/BME/nagyhf/nagyhf/backend.cpp" "CMakeFiles/MyExecutable.dir/backend.cpp.o" "gcc" "CMakeFiles/MyExecutable.dir/backend.cpp.o.d"
+  "/home/borisz/BME/nagyhf/nagyhf/main.cpp" "CMakeFiles/MyExecutable.dir/main.cpp.o" "gcc" "CMakeFiles/MyExecutable.dir/main.cpp.o.d"
   )
 
 # Targets to which this target links.

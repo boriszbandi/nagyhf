@@ -1,0 +1,222 @@
+==25154== Memcheck, a memory error detector
+==25154== Copyright (C) 2002-2022, and GNU GPL'd, by Julian Seward et al.
+==25154== Using Valgrind-3.19.0-8d3c8034b8-20220411 and LibVEX; rerun with -h for copyright info
+==25154== Command: ./MyExecutable
+==25154== Parent PID: 376
+==25154== 
+--25154-- 
+--25154-- Valgrind options:
+--25154--    --leak-check=full
+--25154--    --show-leak-kinds=all
+--25154--    --track-origins=yes
+--25154--    --verbose
+--25154--    -s
+--25154--    --log-file=valgrind.txt
+--25154-- Contents of /proc/version:
+--25154--   Linux version 5.10.102.1-microsoft-standard-WSL2 (oe-user@oe-host) (x86_64-msft-linux-gcc (GCC) 9.3.0, GNU ld (GNU Binutils) 2.34.0.20200220) #1 SMP Wed Mar 2 00:30:59 UTC 2022
+--25154-- 
+--25154-- Arch and hwcaps: AMD64, LittleEndian, amd64-cx16-lzcnt-rdtscp-sse3-ssse3-avx-avx2-bmi-f16c-rdrand-rdseed
+--25154-- Page sizes: currently 4096, max supported 4096
+--25154-- Valgrind library directory: /usr/libexec/valgrind
+--25154-- Reading syms from /home/borisz/BME/nagyhf/nagyhf/MyExecutable
+--25154-- Reading syms from /usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2
+--25154--   Considering /usr/lib/debug/.build-id/0e/221d13cd73dac3d7b782778a5f325252903c3e.debug ..
+--25154--   .. build-id is valid
+--25154-- Reading syms from /usr/libexec/valgrind/memcheck-amd64-linux
+--25154--   Considering /usr/lib/debug/.build-id/82/26c2aa6b808ebd5a6fafb694a7fb3287f33590.debug ..
+--25154--   .. build-id is valid
+--25154--    object doesn't have a dynamic symbol table
+--25154-- Scheduler: using generic scheduler lock implementation.
+--25154-- Reading suppressions file: /usr/libexec/valgrind/default.supp
+==25154== embedded gdbserver: reading from /tmp/vgdb-pipe-from-vgdb-to-25154-by-borisz-on-???
+==25154== embedded gdbserver: writing to   /tmp/vgdb-pipe-to-vgdb-from-25154-by-borisz-on-???
+==25154== embedded gdbserver: shared mem   /tmp/vgdb-pipe-shared-mem-vgdb-25154-by-borisz-on-???
+==25154== 
+==25154== TO CONTROL THIS PROCESS USING vgdb (which you probably
+==25154== don't want to do, unless you know exactly what you're doing,
+==25154== or are doing some strange experiment):
+==25154==   /usr/bin/vgdb --pid=25154 ...command...
+==25154== 
+==25154== TO DEBUG THIS PROCESS USING GDB: start GDB like this
+==25154==   /path/to/gdb ./MyExecutable
+==25154== and then give GDB the following command
+==25154==   target remote | /usr/bin/vgdb --pid=25154
+==25154== --pid is optional if only one valgrind process is running
+==25154== 
+--25154-- REDIR: 0x40238e0 (ld-linux-x86-64.so.2:strlen) redirected to 0x580bb0e2 (vgPlain_amd64_linux_REDIR_FOR_strlen)
+--25154-- REDIR: 0x40220c0 (ld-linux-x86-64.so.2:index) redirected to 0x580bb0fc (vgPlain_amd64_linux_REDIR_FOR_index)
+--25154-- Reading syms from /usr/libexec/valgrind/vgpreload_core-amd64-linux.so
+--25154--   Considering /usr/lib/debug/.build-id/ad/f1388be4d8781737b0c83fe111a5a9c6e930aa.debug ..
+--25154--   .. build-id is valid
+--25154-- Reading syms from /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so
+--25154--   Considering /usr/lib/debug/.build-id/d8/ec66cffcb23a75c3f15940674d6028709121f8.debug ..
+--25154--   .. build-id is valid
+==25154== WARNING: new redirection conflicts with existing -- ignoring it
+--25154--     old: 0x040238e0 (strlen              ) R-> (0000.0) 0x580bb0e2 vgPlain_amd64_linux_REDIR_FOR_strlen
+--25154--     new: 0x040238e0 (strlen              ) R-> (2007.0) 0x048468a0 strlen
+--25154-- REDIR: 0x40222e0 (ld-linux-x86-64.so.2:strcmp) redirected to 0x4847780 (strcmp)
+--25154-- REDIR: 0x4021550 (ld-linux-x86-64.so.2:mempcpy) redirected to 0x484b1a0 (mempcpy)
+--25154-- Reading syms from /usr/lib/x86_64-linux-gnu/libcurl.so.4.8.0
+--25154--    object doesn't have a symbol table
+--25154-- Reading syms from /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30
+--25154--    object doesn't have a symbol table
+--25154-- Reading syms from /usr/lib/x86_64-linux-gnu/libm.so.6
+--25154--   Considering /usr/lib/debug/.build-id/ba/ac66d4ed827c5168c0c72b9ee3b56ab5750a8a.debug ..
+--25154--   .. build-id is valid
+--25154-- Reading syms from /usr/lib/x86_64-linux-gnu/libgcc_s.so.1
+--25154--    object doesn't have a symbol table
+--25154-- Reading syms from /usr/lib/x86_64-linux-gnu/libc.so.6
+--25154--   Considering /usr/lib/debug/.build-id/58/254ca972028402bc40624f81388d85ec95f70d.debug ..
+--25154--   .. build-id is valid
+==25154== WARNING: new redirection conflicts with existing -- ignoring it
+--25154--     old: 0x04cba540 (memalign            ) R-> (1011.0) 0x04845bc0 memalign
+--25154--     new: 0x04cba540 (memalign            ) R-> (1017.0) 0x04845b90 aligned_alloc
+==25154== WARNING: new redirection conflicts with existing -- ignoring it
+--25154--     old: 0x04cba540 (memalign            ) R-> (1011.0) 0x04845bc0 memalign
+--25154--     new: 0x04cba540 (memalign            ) R-> (1017.0) 0x04845b60 aligned_alloc
+--25154-- Reading syms from /usr/lib/x86_64-linux-gnu/libnghttp2.so.14.24.1
+--25154--    object doesn't have a symbol table
+--25154-- Reading syms from /usr/lib/x86_64-linux-gnu/libidn2.so.0.3.8
+--25154--    object doesn't have a symbol table
+--25154-- Reading syms from /usr/lib/x86_64-linux-gnu/librtmp.so.1
+--25154--    object doesn't have a symbol table
+--25154-- Reading syms from /usr/lib/x86_64-linux-gnu/libssh2.so.1.0.1
+--25154--    object doesn't have a symbol table
+--25154-- Reading syms from /usr/lib/x86_64-linux-gnu/libpsl.so.5.3.4
+--25154--    object doesn't have a symbol table
+--25154-- Reading syms from /usr/lib/x86_64-linux-gnu/libssl.so.3
+--25154--    object doesn't have a symbol table
+--25154-- Reading syms from /usr/lib/x86_64-linux-gnu/libcrypto.so.3
+--25154--    object doesn't have a symbol table
+--25154-- Reading syms from /usr/lib/x86_64-linux-gnu/libgssapi_krb5.so.2.2
+--25154--    object doesn't have a symbol table
+--25154-- Reading syms from /usr/lib/x86_64-linux-gnu/libldap-2.5.so.0.1.8
+--25154--    object doesn't have a symbol table
+--25154-- Reading syms from /usr/lib/x86_64-linux-gnu/liblber-2.5.so.0.1.8
+--25154--    object doesn't have a symbol table
+--25154-- Reading syms from /usr/lib/x86_64-linux-gnu/libzstd.so.1.5.4
+--25154--    object doesn't have a symbol table
+--25154-- Reading syms from /usr/lib/x86_64-linux-gnu/libbrotlidec.so.1.0.9
+--25154--    object doesn't have a symbol table
+--25154-- Reading syms from /usr/lib/x86_64-linux-gnu/libz.so.1.2.13
+--25154--    object doesn't have a symbol table
+--25154-- Reading syms from /usr/lib/x86_64-linux-gnu/libunistring.so.2.2.0
+--25154--    object doesn't have a symbol table
+--25154-- Reading syms from /usr/lib/x86_64-linux-gnu/libgnutls.so.30.34.3
+--25154--    object doesn't have a symbol table
+--25154-- Reading syms from /usr/lib/x86_64-linux-gnu/libhogweed.so.6.6
+--25154--    object doesn't have a symbol table
+--25154-- Reading syms from /usr/lib/x86_64-linux-gnu/libnettle.so.8.6
+--25154--    object doesn't have a symbol table
+--25154-- Reading syms from /usr/lib/x86_64-linux-gnu/libgmp.so.10.4.1
+--25154--    object doesn't have a symbol table
+--25154-- Reading syms from /usr/lib/x86_64-linux-gnu/libkrb5.so.3.3
+--25154--    object doesn't have a symbol table
+--25154-- Reading syms from /usr/lib/x86_64-linux-gnu/libk5crypto.so.3.1
+--25154--    object doesn't have a symbol table
+--25154-- Reading syms from /usr/lib/x86_64-linux-gnu/libcom_err.so.2.1
+--25154--    object doesn't have a symbol table
+--25154-- Reading syms from /usr/lib/x86_64-linux-gnu/libkrb5support.so.0.1
+--25154--    object doesn't have a symbol table
+--25154-- Reading syms from /usr/lib/x86_64-linux-gnu/libsasl2.so.2.0.25
+--25154--    object doesn't have a symbol table
+--25154-- Reading syms from /usr/lib/x86_64-linux-gnu/libbrotlicommon.so.1.0.9
+--25154--    object doesn't have a symbol table
+--25154-- Reading syms from /usr/lib/x86_64-linux-gnu/libp11-kit.so.0.3.0
+--25154--    object doesn't have a symbol table
+--25154-- Reading syms from /usr/lib/x86_64-linux-gnu/libtasn1.so.6.6.3
+--25154--    object doesn't have a symbol table
+--25154-- Reading syms from /usr/lib/x86_64-linux-gnu/libkeyutils.so.1.10
+--25154--    object doesn't have a symbol table
+--25154-- Reading syms from /usr/lib/x86_64-linux-gnu/libresolv.so.2
+--25154--   Considering /usr/lib/debug/.build-id/da/7877d179b0179ae55d9cb3be060bfb395aeb86.debug ..
+--25154--   .. build-id is valid
+--25154-- Reading syms from /usr/lib/x86_64-linux-gnu/libffi.so.8.1.2
+--25154--    object doesn't have a symbol table
+--25154-- REDIR: 0x4cc0490 (libc.so.6:strnlen) redirected to 0x48371b0 (_vgnU_ifunc_wrapper)
+--25154-- REDIR: 0x4cc0520 (libc.so.6:strpbrk) redirected to 0x48371b0 (_vgnU_ifunc_wrapper)
+--25154-- REDIR: 0x4cbe640 (libc.so.6:strcmp) redirected to 0x48371b0 (_vgnU_ifunc_wrapper)
+--25154-- REDIR: 0x4cd3420 (libc.so.6:wcsnlen) redirected to 0x48371b0 (_vgnU_ifunc_wrapper)
+--25154-- REDIR: 0x4cbd780 (libc.so.6:memset) redirected to 0x48371b0 (_vgnU_ifunc_wrapper)
+--25154-- REDIR: 0x4cd1d60 (libc.so.6:wcslen) redirected to 0x48371b0 (_vgnU_ifunc_wrapper)
+--25154-- REDIR: 0x4cbcdb0 (libc.so.6:memcpy@@GLIBC_2.14) redirected to 0x48371b0 (_vgnU_ifunc_wrapper)
+--25154-- REDIR: 0x4cd1b90 (libc.so.6:wcschr) redirected to 0x48371b0 (_vgnU_ifunc_wrapper)
+--25154-- REDIR: 0x4cbe530 (libc.so.6:index) redirected to 0x48371b0 (_vgnU_ifunc_wrapper)
+--25154-- REDIR: 0x4cc0550 (libc.so.6:rindex) redirected to 0x48371b0 (_vgnU_ifunc_wrapper)
+--25154-- REDIR: 0x4cd1c20 (libc.so.6:wcscmp) redirected to 0x48371b0 (_vgnU_ifunc_wrapper)
+--25154-- REDIR: 0x4cbd9c0 (libc.so.6:stpncpy) redirected to 0x48371b0 (_vgnU_ifunc_wrapper)
+--25154-- REDIR: 0x4cd2170 (libc.so.6:wmemchr) redirected to 0x48371b0 (_vgnU_ifunc_wrapper)
+--25154-- REDIR: 0x4cc0340 (libc.so.6:strncmp) redirected to 0x48371b0 (_vgnU_ifunc_wrapper)
+--25154-- REDIR: 0x4cbda30 (libc.so.6:strcasecmp) redirected to 0x48371b0 (_vgnU_ifunc_wrapper)
+--25154-- REDIR: 0x4cbf8a0 (libc.so.6:strcspn) redirected to 0x48371b0 (_vgnU_ifunc_wrapper)
+--25154-- REDIR: 0x4cd1cb0 (libc.so.6:wcscpy) redirected to 0x48371b0 (_vgnU_ifunc_wrapper)
+--25154-- REDIR: 0x4cbe4b0 (libc.so.6:strcat) redirected to 0x48371b0 (_vgnU_ifunc_wrapper)
+--25154-- REDIR: 0x4cc0230 (libc.so.6:strncasecmp_l) redirected to 0x48371b0 (_vgnU_ifunc_wrapper)
+--25154-- REDIR: 0x4cbccc0 (libc.so.6:bcmp) redirected to 0x48371b0 (_vgnU_ifunc_wrapper)
+--25154-- REDIR: 0x4cbd6f0 (libc.so.6:memrchr) redirected to 0x48371b0 (_vgnU_ifunc_wrapper)
+--25154-- REDIR: 0x4cbe5b0 (libc.so.6:strchrnul) redirected to 0x48371b0 (_vgnU_ifunc_wrapper)
+--25154-- REDIR: 0x4cbf820 (libc.so.6:strcpy) redirected to 0x48371b0 (_vgnU_ifunc_wrapper)
+--25154-- REDIR: 0x4cbdad0 (libc.so.6:strcasecmp_l) redirected to 0x48371b0 (_vgnU_ifunc_wrapper)
+--25154-- REDIR: 0x4cc0100 (libc.so.6:strlen) redirected to 0x48371b0 (_vgnU_ifunc_wrapper)
+--25154-- REDIR: 0x4cc03e0 (libc.so.6:strncpy) redirected to 0x48371b0 (_vgnU_ifunc_wrapper)
+--25154-- REDIR: 0x4cbd940 (libc.so.6:stpcpy) redirected to 0x48371b0 (_vgnU_ifunc_wrapper)
+--25154-- REDIR: 0x4cbd4d0 (libc.so.6:memmove) redirected to 0x48371b0 (_vgnU_ifunc_wrapper)
+==25154== Preferring higher priority redirection:
+--25154--     old: 0x04d73780 (__memcpy_avx_unalign) R-> (2018.0) 0x04848a60 __memcpy_avx_unaligned_erms
+--25154--     new: 0x04d73780 (__memcpy_avx_unalign) R-> (2018.1) 0x0484a2b0 memmove
+--25154-- REDIR: 0x4cbcc40 (libc.so.6:memchr) redirected to 0x48371b0 (_vgnU_ifunc_wrapper)
+--25154-- REDIR: 0x4cc0710 (libc.so.6:strspn) redirected to 0x48371b0 (_vgnU_ifunc_wrapper)
+--25154-- REDIR: 0x4cbd5e0 (libc.so.6:mempcpy) redirected to 0x48371b0 (_vgnU_ifunc_wrapper)
+--25154-- REDIR: 0x4cc0190 (libc.so.6:strncasecmp) redirected to 0x48371b0 (_vgnU_ifunc_wrapper)
+--25154-- REDIR: 0x4cbd880 (libc.so.6:rawmemchr) redirected to 0x48371b0 (_vgnU_ifunc_wrapper)
+--25154-- REDIR: 0x4cc02d0 (libc.so.6:strncat) redirected to 0x48371b0 (_vgnU_ifunc_wrapper)
+--25154-- REDIR: 0x4d36fc0 (libc.so.6:__memcpy_chk) redirected to 0x48371b0 (_vgnU_ifunc_wrapper)
+--25154-- REDIR: 0x4cc0eb0 (libc.so.6:strstr) redirected to 0x48371b0 (_vgnU_ifunc_wrapper)
+--25154-- REDIR: 0x4d370d0 (libc.so.6:__memmove_chk) redirected to 0x48371b0 (_vgnU_ifunc_wrapper)
+==25154== WARNING: new redirection conflicts with existing -- ignoring it
+--25154--     old: 0x04d73740 (__memcpy_chk_avx_una) R-> (2030.0) 0x0484b290 __memcpy_chk
+--25154--     new: 0x04d73740 (__memcpy_chk_avx_una) R-> (2024.0) 0x0484ac30 __memmove_chk
+==25154== WARNING: new redirection conflicts with existing -- ignoring it
+--25154--     old: 0x04d73740 (__memcpy_chk_avx_una) R-> (2030.0) 0x0484b290 __memcpy_chk
+--25154--     new: 0x04d73740 (__memcpy_chk_avx_una) R-> (2024.0) 0x0484ac30 __memmove_chk
+==25154== WARNING: new redirection conflicts with existing -- ignoring it
+--25154--     old: 0x04d73740 (__memcpy_chk_avx_una) R-> (2030.0) 0x0484b290 __memcpy_chk
+--25154--     new: 0x04d73740 (__memcpy_chk_avx_una) R-> (2024.0) 0x0484ac30 __memmove_chk
+--25154-- REDIR: 0x4d79850 (libc.so.6:__strrchr_avx2) redirected to 0x48462e0 (rindex)
+--25154-- REDIR: 0x4d76f00 (libc.so.6:__strlen_avx2) redirected to 0x4846780 (strlen)
+--25154-- REDIR: 0x4d785d0 (libc.so.6:__strncmp_avx2) redirected to 0x4846ed0 (strncmp)
+--25154-- REDIR: 0x4d761e0 (libc.so.6:__strchr_avx2) redirected to 0x4846460 (index)
+--25154-- REDIR: 0x4d76610 (libc.so.6:__strcmp_avx2) redirected to 0x4847680 (strcmp)
+--25154-- REDIR: 0x4cb9860 (libc.so.6:malloc) redirected to 0x4840740 (malloc)
+--25154-- REDIR: 0x4d73020 (libc.so.6:__memcmp_avx2_movbe) redirected to 0x4849aa0 (bcmp)
+--25154-- REDIR: 0x4d73780 (libc.so.6:__memcpy_avx_unaligned_erms) redirected to 0x484a2b0 (memmove)
+--25154-- REDIR: 0x4cba610 (libc.so.6:calloc) redirected to 0x4845540 (calloc)
+--25154-- REDIR: 0x4d73740 (libc.so.6:__memcpy_chk_avx_unaligned_erms) redirected to 0x484b290 (__memcpy_chk)
+--25154-- REDIR: 0x4cb9e20 (libc.so.6:free) redirected to 0x4843110 (free)
+--25154-- REDIR: 0x4d72d80 (libc.so.6:__memchr_avx2) redirected to 0x4847800 (memchr)
+--25154-- REDIR: 0x4d76420 (libc.so.6:__strchrnul_avx2) redirected to 0x484aca0 (strchrnul)
+--25154-- REDIR: 0x4d73730 (libc.so.6:__mempcpy_avx_unaligned_erms) redirected to 0x484adb0 (mempcpy)
+--25154-- REDIR: 0x4cba060 (libc.so.6:realloc) redirected to 0x48457b0 (realloc)
+--25154-- REDIR: 0x4d75170 (libc.so.6:__strcasecmp_l_avx2) redirected to 0x4847290 (strcasecmp_l)
+--25154-- REDIR: 0x4d74420 (libc.so.6:__stpcpy_avx2) redirected to 0x4849b60 (stpcpy)
+--25154-- REDIR: 0x4d74180 (libc.so.6:__memset_avx2_unaligned_erms) redirected to 0x484a1c0 (memset)
+--25154-- REDIR: 0x4d76b70 (libc.so.6:__strcpy_avx2) redirected to 0x48468d0 (strcpy)
+--25154-- REDIR: 0x49af570 (libstdc++.so.6:operator new(unsigned long)) redirected to 0x4840ec0 (operator new(unsigned long))
+--25154-- REDIR: 0x4d93170 (libc.so.6:__strcspn_sse42) redirected to 0x484b570 (strcspn)
+--25154-- REDIR: 0x4d77080 (libc.so.6:__strncasecmp_avx2) redirected to 0x4847110 (strncasecmp)
+--25154-- REDIR: 0x4d95d10 (libc.so.6:__strpbrk_sse42) redirected to 0x484b520 (strpbrk)
+--25154-- REDIR: 0x4d75160 (libc.so.6:__strcasecmp_avx2) redirected to 0x4847050 (strcasecmp)
+--25154-- REDIR: 0x4d78c20 (libc.so.6:__strncpy_avx2) redirected to 0x4846a50 (strncpy)
+--25154-- REDIR: 0x4d742c0 (libc.so.6:__rawmemchr_avx2) redirected to 0x484acd0 (rawmemchr)
+--25154-- REDIR: 0x49ad8e0 (libstdc++.so.6:operator delete(void*, unsigned long)) redirected to 0x4843930 (operator delete(void*, unsigned long))
+--25154-- REDIR: 0x49ad8d0 (libstdc++.so.6:operator delete(void*)) redirected to 0x48436b0 (operator delete(void*))
+--25154-- REDIR: 0x49af5d0 (libstdc++.so.6:operator new[](unsigned long)) redirected to 0x48421a0 (operator new[](unsigned long))
+--25154-- REDIR: 0x49ad900 (libstdc++.so.6:operator delete[](void*)) redirected to 0x48446f0 (operator delete[](void*))
+==25154== 
+==25154== HEAP SUMMARY:
+==25154==     in use at exit: 0 bytes in 0 blocks
+==25154==   total heap usage: 305,700 allocs, 305,700 frees, 26,704,779 bytes allocated
+==25154== 
+==25154== All heap blocks were freed -- no leaks are possible
+==25154== 
+==25154== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
