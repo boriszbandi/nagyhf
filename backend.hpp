@@ -59,6 +59,11 @@ public:
     std::string publicIp;
     DataFetcher();
 
+
+    std::string getIP() const { return publicIp; }
+    double getLatitude() const { return lat; }
+    double getLongitude() const { return lon; }
+    
     //A virtuális destruktor miatt a leszármazottakban is szükséges a destruktor, a 0-val az alapértelmezett implementációt használjuk
     virtual ~DataFetcher();
     virtual void fetchIP() = 0;

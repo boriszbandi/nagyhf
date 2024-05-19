@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 3.10)
 
 # Set your project name
-project(MyProject)
+project(Borisz)
 
 # Set C++ standard
 set(CMAKE_CXX_STANDARD 17)
@@ -12,19 +12,29 @@ set(CMAKE_CXX_STANDARD_REQUIRED True)
 find_package(CURL REQUIRED)
 
 # Include directories for your project
-include_directories(${CURL_INCLUDE_DIR})
-# If you've placed the json.hpp in a specific include directory, specify it here
+include_directories(${CURL_INCLUDE_DIRS})
 include_directories(${PROJECT_SOURCE_DIR}/include)
 
 # Define the executable to be built from your source files
-#add_definitions(-DDEBUG_MODE)
-add_executable(MyExecutable backend.cpp main.cpp) # Include main.cpp here
+add_executable(Borisz main.cpp backend.cpp)
 
 # Link the CURL library with your executable
-target_link_libraries(MyExecutable ${CURL_LIBRARIES})
-# add here the include/memtrace.hpp file
+target_link_libraries(Borisz ${CURL_LIBRARIES})
 
+# Google Test configuration
+# Add GoogleTest as a subdirectory. Assuming GoogleTest is cloned in the 'external' directory
+add_subdirectory(external/googletest)
 
+# Include GoogleTest directories
+include_directories(external/googletest/googletest/include)
+include_directories(external/googletest/googlemock/include)
 
-# If you're using a specific path for the nlohmann/json.hpp and it's not in a standard include path, you might need to adjust
-# the include_directories command above to point to the correct directory where json.hpp is located.
+# Create a test executable
+add_executable(runTests test_http_response.cpp test_backend.cpp backend.cpp)
+
+# Link the Google Test libraries with the test executable
+target_link_libraries(runTests gtest gtest_main ${CURL_LIBRARIES})
+
+# Enable testing
+enable_testing()
+add_test(NAME runTests COMMAND runTests)

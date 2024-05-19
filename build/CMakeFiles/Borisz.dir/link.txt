@@ -1,0 +1,1 @@
+/usr/bin/c++ -g CMakeFiles/Borisz.dir/main.cpp.o CMakeFiles/Borisz.dir/backend.cpp.o -o Borisz  /usr/lib/x86_64-linux-gnu/libcurl.so 

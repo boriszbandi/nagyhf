@@ -25,11 +25,13 @@ class HttpResponse {
     public:
         enum DateType {
             HO_NAP,
-            ALL
+            ALL,
+            SUNRISE,
+            SUNSET
         };
         template<DateType T>
         std::string dateFormatter(int hoIdx = 1, int napIdx = 1, WeatherData ForecastData = {}){
-            std::string monthNames[] = {"Január", "Február", "Március", "Április", "Május", "Június", "Július", "Augusztus", "Szeptember", "Október", "November", "December"};
+            std::string monthNames[] = {"Jan.", "Feb.", "Már.", "Ápr.", "Máj.", "Jún.", "Júl.", "Aug.", "Szept.", "Okt.", "Nov.", "Dec."};
             
             
             if constexpr (T == HO_NAP){
@@ -44,13 +46,22 @@ class HttpResponse {
                 oraperc <<std::put_time(tm, "%H:%M");
                 
                 return monthNames[ho] + " " + std::to_string(nap) + ". " + oraperc.str();
+            }            
+            else if constexpr(T == SUNSET || T == SUNRISE){
+                std::time_t t;
+                if(T == SUNSET) t = ForecastData.sunset;
+                else if(T == SUNRISE) t = ForecastData.sunrise;
+                std::tm* now = std::localtime(&t);
+                std::stringstream nap_intervallumjai;
+                nap_intervallumjai << std::put_time(now, "%H:%M:%S");
+
+                return nap_intervallumjai.str();
             }
             return "";
         }
        
     BackendDataFetcher bdf;
 
-public:
     // A kliens socketjének fogadása és a válasz elküldése
     void operator()(int clientSocket) {
         // Lekérjük az időjárás adatokat
@@ -89,38 +100,43 @@ public:
         // A data egy JSON objektum, amely tartalmazza HTML adatait
         nlohmann::json data;    
 
-        std::string datestring = dateFormatter<HO_NAP>(now->tm_mon, now->tm_mday);    
-        data["date"] = datestring;
-        data["city"] = weatherData.city;
-        data["temp"] = weatherData.temp;
-        data["max_temp"] = weatherData.temp_max;
-        data["min_temp"] = weatherData.temp_min;
-        data["description"] = weatherData.description;
-        data["icon"] = weatherData.icon;
-        data["wind_speed"] = weatherData.wind_speed;
-        data["wind_direction"] = weatherData.wind_direction;
-        data["pressure"] = weatherData.pressure;
-        data["sunset"] = weatherData.sunset;
-        data["sunrise"] = weatherData.sunrise;
-        data["ip"] = bdf.publicIp; 
-        data["hosszusag"] = bdf.hosszusag;
-        data["szelesseg"] = bdf.szelesseg;
-        data["raw"] = weatherData._raw;
-        for (const auto& forecastData : forecast) {
-            inja::json item;
-            std::string datestring = dateFormatter<ALL>(0, 0, forecastData);
-            item["date"] = datestring;
-            item["city"] = forecastData.city;
-            item["description"] = forecastData.description;
-            item["temp"] = forecastData.temp;
-            item["temp_min"] = forecastData.temp_min;
-            item["temp_max"] = forecastData.temp_max;
-            item["pressure"] = forecastData.pressure;
-            item["humidity"] = forecastData.humidity;
-            item["wind_speed"] = forecastData.wind_speed;
-            item["wind_direction"] = forecastData.wind_direction;
-            item["icon"] = forecastData.icon;
-            data["forecast"].push_back(item);
+        try{    
+            data["date"] = dateFormatter<HO_NAP>(now->tm_mon, now->tm_mday);
+            data["city"] = weatherData.city;
+            data["temp"] = weatherData.temp;
+            data["max_temp"] = weatherData.temp_max;
+            data["min_temp"] = weatherData.temp_min;
+            data["description"] = weatherData.description;
+            data["icon"] = weatherData.icon;
+            data["wind_speed"] = weatherData.wind_speed;
+            data["wind_direction"] = weatherData.wind_direction;
+            data["pressure"] = weatherData.pressure;
+            data["sunset"] = dateFormatter<SUNSET>(0,0,weatherData);
+            data["sunrise"] = dateFormatter<SUNRISE>(0,0,weatherData);
+            data["ip"] = bdf.publicIp; 
+            data["hosszusag"] = bdf.hosszusag;
+            data["szelesseg"] = bdf.szelesseg;
+            data["raw"] = weatherData._raw;
+            std::cout << data["sunset"] << std::endl;
+            std::cout << data["sunrise"] << std::endl;
+            for (const auto& forecastData : forecast) {
+                inja::json item;
+                std::string datestring = dateFormatter<ALL>(0, 0, forecastData);
+                item["date"] = datestring;
+                item["city"] = forecastData.city;
+                item["description"] = forecastData.description;
+                item["temp"] = forecastData.temp;
+                item["temp_min"] = forecastData.temp_min;
+                item["temp_max"] = forecastData.temp_max;
+                item["pressure"] = forecastData.pressure;
+                item["humidity"] = forecastData.humidity;
+                item["wind_speed"] = forecastData.wind_speed;
+                item["wind_direction"] = forecastData.wind_direction;
+                item["icon"] = forecastData.icon;
+                data["forecast"].push_back(item);
+            }
+        } catch (std::exception& e) {
+            std::cerr << "[!!!!] INJA templating failed. Lehetséges ok?:" << e.what() << std::endl;
         }
         // A behelyettesített template-t lerenedereljük, majd a válaszhoz hozzáadjuk a HTTP fejlécet
         std::string response = env.render(temp, data);

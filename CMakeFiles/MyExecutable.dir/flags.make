@@ -4,7 +4,7 @@
 # compile CXX with /usr/bin/c++
 CXX_DEFINES = 
 
-CXX_INCLUDES = -I/home/borisz/BME/nagyhf/nagyhf/include
+CXX_INCLUDES = -I/home/borisz/BME/nagyhf/nagyhf/include -I/home/borisz/BME/nagyhf/nagyhf/external/googletest/googletest/include -I/home/borisz/BME/nagyhf/nagyhf/external/googletest/googlemock/include
 
 CXX_FLAGS = -g -std=gnu++17
 

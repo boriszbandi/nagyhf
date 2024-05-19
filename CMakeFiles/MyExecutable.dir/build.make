@@ -69,24 +69,10 @@ include CMakeFiles/MyExecutable.dir/progress.make
 # Include the compile flags for this target's objects.
 include CMakeFiles/MyExecutable.dir/flags.make
 
-CMakeFiles/MyExecutable.dir/backend.cpp.o: CMakeFiles/MyExecutable.dir/flags.make
-CMakeFiles/MyExecutable.dir/backend.cpp.o: backend.cpp
-CMakeFiles/MyExecutable.dir/backend.cpp.o: CMakeFiles/MyExecutable.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/borisz/BME/nagyhf/nagyhf/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/MyExecutable.dir/backend.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/MyExecutable.dir/backend.cpp.o -MF CMakeFiles/MyExecutable.dir/backend.cpp.o.d -o CMakeFiles/MyExecutable.dir/backend.cpp.o -c /home/borisz/BME/nagyhf/nagyhf/backend.cpp
-
-CMakeFiles/MyExecutable.dir/backend.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/MyExecutable.dir/backend.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/borisz/BME/nagyhf/nagyhf/backend.cpp > CMakeFiles/MyExecutable.dir/backend.cpp.i
-
-CMakeFiles/MyExecutable.dir/backend.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/MyExecutable.dir/backend.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/borisz/BME/nagyhf/nagyhf/backend.cpp -o CMakeFiles/MyExecutable.dir/backend.cpp.s
-
 CMakeFiles/MyExecutable.dir/main.cpp.o: CMakeFiles/MyExecutable.dir/flags.make
 CMakeFiles/MyExecutable.dir/main.cpp.o: main.cpp
 CMakeFiles/MyExecutable.dir/main.cpp.o: CMakeFiles/MyExecutable.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/borisz/BME/nagyhf/nagyhf/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/MyExecutable.dir/main.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/borisz/BME/nagyhf/nagyhf/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/MyExecutable.dir/main.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/MyExecutable.dir/main.cpp.o -MF CMakeFiles/MyExecutable.dir/main.cpp.o.d -o CMakeFiles/MyExecutable.dir/main.cpp.o -c /home/borisz/BME/nagyhf/nagyhf/main.cpp
 
 CMakeFiles/MyExecutable.dir/main.cpp.i: cmake_force
@@ -97,16 +83,30 @@ CMakeFiles/MyExecutable.dir/main.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/MyExecutable.dir/main.cpp.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/borisz/BME/nagyhf/nagyhf/main.cpp -o CMakeFiles/MyExecutable.dir/main.cpp.s
 
+CMakeFiles/MyExecutable.dir/backend.cpp.o: CMakeFiles/MyExecutable.dir/flags.make
+CMakeFiles/MyExecutable.dir/backend.cpp.o: backend.cpp
+CMakeFiles/MyExecutable.dir/backend.cpp.o: CMakeFiles/MyExecutable.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/borisz/BME/nagyhf/nagyhf/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/MyExecutable.dir/backend.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/MyExecutable.dir/backend.cpp.o -MF CMakeFiles/MyExecutable.dir/backend.cpp.o.d -o CMakeFiles/MyExecutable.dir/backend.cpp.o -c /home/borisz/BME/nagyhf/nagyhf/backend.cpp
+
+CMakeFiles/MyExecutable.dir/backend.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/MyExecutable.dir/backend.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/borisz/BME/nagyhf/nagyhf/backend.cpp > CMakeFiles/MyExecutable.dir/backend.cpp.i
+
+CMakeFiles/MyExecutable.dir/backend.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/MyExecutable.dir/backend.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/borisz/BME/nagyhf/nagyhf/backend.cpp -o CMakeFiles/MyExecutable.dir/backend.cpp.s
+
 # Object files for target MyExecutable
 MyExecutable_OBJECTS = \
-"CMakeFiles/MyExecutable.dir/backend.cpp.o" \
-"CMakeFiles/MyExecutable.dir/main.cpp.o"
+"CMakeFiles/MyExecutable.dir/main.cpp.o" \
+"CMakeFiles/MyExecutable.dir/backend.cpp.o"
 
 # External object files for target MyExecutable
 MyExecutable_EXTERNAL_OBJECTS =
 
-MyExecutable: CMakeFiles/MyExecutable.dir/backend.cpp.o
 MyExecutable: CMakeFiles/MyExecutable.dir/main.cpp.o
+MyExecutable: CMakeFiles/MyExecutable.dir/backend.cpp.o
 MyExecutable: CMakeFiles/MyExecutable.dir/build.make
 MyExecutable: /usr/lib/x86_64-linux-gnu/libcurl.so
 MyExecutable: CMakeFiles/MyExecutable.dir/link.txt

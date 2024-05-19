@@ -30,6 +30,10 @@ void BackendDataFetcher::fetchIP() {
 
     //A curl_easy_perform hívás végzi a lekérést
     res = curl_easy_perform(curl);
+    if (res != CURLE_OK) {
+        // Baj van :C
+        throw std::runtime_error("[!] CURL error (@IP fetch): " + std::string(curl_easy_strerror(res)));
+    }
     if (res != CURLE_OK) { throw std::runtime_error("[!] CURL error (@IP fetch): " + std::string(curl_easy_strerror(res))); }
 
     //A stream tartalmát JSON formátumra próbáljuk alakítani
@@ -74,11 +78,14 @@ WeatherData BackendDataFetcher::fetchWeather() {
     curl_easy_setopt(curl, CURLOPT_WRITEFUNCTION, writeCallback);
 
     //A curl_easy_perform hívás végzi a lekérést
-    res = curl_easy_perform(curl);
+    res = curl_easy_perform(curl);    
     if (res != CURLE_OK) { throw std::runtime_error("[!] CURL error (@Weather lookup): " + std::string(curl_easy_strerror(res))); }
 
     //A stream tartalmát JSON formátumra próbáljuk alakítani    
     nlohmann::json jsonWeatherData = nlohmann::json::parse(stream);
+    if (jsonWeatherData.is_discarded()) {
+        throw std::runtime_error("[!] Failed to parse weather data (@Weather lookup)"); // Handle JSON parsing errors
+    }
     //Az adatokat egy WeatherData objektumba tároljuk
     WeatherData data;
     //Ha a weather mező nem üres, akkor a description mező tartalmát eltároljuk
@@ -99,9 +106,11 @@ WeatherData BackendDataFetcher::fetchWeather() {
     data.humidity = std::round(jsonWeatherData["main"]["humidity"].get<double>());
     data.wind_speed = std::round(jsonWeatherData["wind"]["speed"].get<double>());
 
-    data.wind_direction = jsonWeatherData["wind"]["deg"];
+    //Az időt a napkeletke és napnyugta időpontját is eltároljuk de úgy hogy nem UNIX timestampként.
     data.sunrise = jsonWeatherData["sys"]["sunrise"];
     data.sunset = jsonWeatherData["sys"]["sunset"];
+
+    data.wind_direction = jsonWeatherData["wind"]["deg"];
     data.timezone = jsonWeatherData["timezone"];
     data.icon = jsonWeatherData["weather"][0]["icon"];
 
