@@ -245,7 +245,7 @@ public:
 int main() { 
     //https://stackoverflow.com/questions/16959377/how-to-detect-kill-of-my-process
 
-    struct sigaction act;
+    /*struct sigaction act;
     act.sa_handler = inthand;
     sigemptyset(&act.sa_mask);
     act.sa_flags = 0;
@@ -254,7 +254,7 @@ int main() {
         perror("sigaction");
         return 1;
     } 
-    //========eddig
+    //========eddig*/
     std::setlocale(LC_ALL, "hu_HU.utf8");
     Server server;
     while (!stop) {

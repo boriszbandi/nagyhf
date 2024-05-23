@@ -71,7 +71,6 @@ public:
     virtual WeatherData fetchWeather() = 0;
     virtual std::vector<WeatherData> fetchForecast() = 0;
 };
-//Az adatok lekérdezéséért felelős osztály
 //@function fetchIP: az IP cím lekérdezéséért felelős függvény
 //@function fetchGeo: a koordináták lekérdezéséért felelős függvény
 //@function fetchWeather: az időjárás adatok lekérdezéséért felelős függvény

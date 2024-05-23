@@ -30,10 +30,6 @@ void BackendDataFetcher::fetchIP() {
 
     //A curl_easy_perform hívás végzi a lekérést
     res = curl_easy_perform(curl);
-    if (res != CURLE_OK) {
-        // Baj van :C
-        throw std::runtime_error("[!] CURL error (@IP fetch): " + std::string(curl_easy_strerror(res)));
-    }
     if (res != CURLE_OK) { throw std::runtime_error("[!] CURL error (@IP fetch): " + std::string(curl_easy_strerror(res))); }
 
     //A stream tartalmát JSON formátumra próbáljuk alakítani
@@ -84,7 +80,7 @@ WeatherData BackendDataFetcher::fetchWeather() {
     //A stream tartalmát JSON formátumra próbáljuk alakítani    
     nlohmann::json jsonWeatherData = nlohmann::json::parse(stream);
     if (jsonWeatherData.is_discarded()) {
-        throw std::runtime_error("[!] Failed to parse weather data (@Weather lookup)"); // Handle JSON parsing errors
+        throw std::runtime_error("[!] Failed to parse weather data (@Weather lookup)"); 
     }
     //Az adatokat egy WeatherData objektumba tároljuk
     WeatherData data;
